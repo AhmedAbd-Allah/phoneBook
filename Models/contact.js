@@ -30,6 +30,10 @@ const contactSchema = new Schema({
     },
     mailingAddress: {
         type: String,
+    },
+    isDeleted: {
+        type: Boolean,
+        default: false
     }
 });
 
