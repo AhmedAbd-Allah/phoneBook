@@ -4,6 +4,10 @@ const Config = require('./config')
 const mongoose = require('mongoose')
 const contactController = require('./Controllers/contactController')
 const dbURI = Config.mongoURI;
+const mongoSanitize = require('express-mongo-sanitize');
+const bodyParser = require('body-parser');
+
+
 
 // Start database connection
 mongoose.connect(dbURI,
@@ -12,6 +16,11 @@ mongoose.connect(dbURI,
         if (err)
             console.log(err)
     });
+
+
+app.use(mongoSanitize());
+app.use(bodyParser.json({ extended: false }));
+
 
 // allow cross origin
 app.use(function (req, res, next) {
