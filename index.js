@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const Config = require('./config')
 const mongoose = require('mongoose')
+const contactController = require('./Controllers/contactController')
 const dbURI = Config.mongoURI;
 
 // Start database connection
@@ -21,6 +22,12 @@ app.use(function (req, res, next) {
     );
     next();
 });
+
+app.get('/contacts', contactController.getAllContacts)
+app.get('/contact/:contactId', contactController.getContact)
+app.post('/contact', contactController.createContact)
+app.delete('/contact/:contactId', contactController.deleteContact)
+app.patch('/contact/:contactId', contactController.updateContact)
 
 
 // server up
