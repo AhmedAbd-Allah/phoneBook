@@ -13,16 +13,16 @@ const contactSchema = new Schema({
     },
     phoneNumber: {
         work: {
-            type: Number,
+            type: String,
         },
         home: {
-            type: Number,
+            type: String,
         },
         mobile: {
-            type: Number,
+            type: String,
         },
         other: {
-            type: Number,
+            type: String,
         },
     },
     emailAddress: {

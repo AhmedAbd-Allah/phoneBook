@@ -21,7 +21,7 @@ async function getContact(req, res) {
 
 async function createContact(req, res) {
     try {
-        let contact = await contactService.getContact(req.body);
+        let contact = await contactService.createContact(req.body);
         res.status(200).send(contact)
     } catch (error) {
         res.send(error)
