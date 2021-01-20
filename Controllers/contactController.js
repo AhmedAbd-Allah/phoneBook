@@ -31,7 +31,7 @@ async function createContact(req, res) {
 async function deleteContact(req, res) {
     try {
         let deletedContact = await contactService.deleteContact(req.params.contactId);
-        res.status(200).send('Contact ' + deletedContact.Id + ' Deleted')
+        res.status(200).send('Contact ' + deletedContact.name + ' Deleted')
     } catch (error) {
         res.send(error)
     }
@@ -39,7 +39,7 @@ async function deleteContact(req, res) {
 
 async function updateContact(req, res) {
     try {
-        let contact = await contactService.updateContact(req.params.contactId);
+        let contact = await contactService.updateContact(req.params.contactId, req.body);
         res.status(200).send(contact)
     } catch (error) {
         res.send(error)
